@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Predictor - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/bitcoin-logo.png" alt="Bitcoin Predictor Logo" width="40">
+                <span>Bitcoin Predictor</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <select class="language-switcher">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="zh">ZH</option>
+                </select>
+                <a href="#login" class="btn">Login/Signup</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Predict Bitcoin Prices with Confidence</h1>
+            <p>Real-time predictions, historical data, and advanced analytics for traders and investors.</p>
+            <a href="#signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Prediction Table -->
+    <section class="prediction-table">
+        <div class="container">
+            <h2>Bitcoin Price Prediction</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>1h Change</th>
+                        <th>24h Change</th>
+                        <th>7d Change</th>
+                        <th>24h Volume</th>
+                        <th>Market Cap</th>
+                        <th>Prediction (24h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="assets/bitcoin-icon.png" alt="Bitcoin" width="20"> Bitcoin (BTC)</td>
+                        <td class="price">$85,903.16</td>
+                        <td class="change negative">-0.3%</td>
+                        <td class="change negative">-2.2%</td>
+                        <td class="change negative">-0.9%</td>
+                        <td>$29,318,401,953</td>
+                        <td>$1,684,817,135,450</td>
+                        <td class="change positive">$86,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="assets/blog1.jpg" alt="Blog 1">
+                    <h3>Bitcoin Price Forecast for Q2 2025</h3>
+                    <p>Our latest predictions for Bitcoin in the upcoming quarter.</p>
+                    <a href="#read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="assets/blog2.jpg" alt="Blog 2">
+                    <h3>How Our Prediction Model Works</h3>
+                    <p>Learn about the AI behind our Bitcoin price predictions.</p>
+                    <a href="#read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="assets/blog3.jpg" alt="Blog 3">
+                    <h3>Top Trading Strategies for Bitcoin</h3>
+                    <p>Proven strategies to maximize your Bitcoin trades.</p>
+                    <a href="#read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h4>About Bitcoin Predictor</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#news">Bitcoin News</a></li>
+                    <li><a href="#methodology">Prediction Methodology</a></li>
+                    <li><a href="#api">API Access</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Form</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#telegram">Telegram</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Stay updated with Bitcoin predictions!</p>
+                <input type="email" placeholder="Enter your email">
+                <button class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bitcoin Predictor. All Rights Reserved.</p>
+            <p>Trading is risky. Do your own research.</p>
+        </div>
+    </footer>
+</body>
+</html>

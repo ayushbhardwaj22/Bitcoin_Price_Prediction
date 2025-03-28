@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - Bitcoin Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Subscription Section */
+        .subscription {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .subscription h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .subscription h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .subscription p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .subscription-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .subscription-form input[type="email"] {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .subscription-form button {
+            padding: 0.75rem 2rem;
+            background: #00C897;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .subscription-form button:hover {
+            background: #00a77a;
+        }
+
+        /* Subscription Options */
+        .subscription-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .option {
+            border-radius: 15px;
+            padding: 2rem;
+            width: 250px; /* Increased width */
+            min-height: 300px; /* Increased height */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Individual colors for each box */
+        .option:nth-child(1) {
+            background: #7eb1ff; /* Light blue for Daily Market Trends */
+        }
+
+        .option:nth-child(2) {
+            background: #7cff7c; /* Light green for EduWednesday */
+        }
+
+        .option:nth-child(3) {
+            background: #ffe3ba; /* Light orange for In-depth Market Analysis */
+        }
+
+        .option:nth-child(4) {
+            background: #cab0f1; /* Light purple for Product Updates */
+        }
+
+        .option h3 {
+            font-size: 1.4rem; /* Slightly larger font */
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .option p {
+            font-size: 1rem; /* Slightly larger font */
+            color: #666;
+        }
+
+        .option img {
+            width: 120px; /* Increased image size */
+            height: 80px;
+            margin-bottom: 0.75rem;
+        }
+
+        /* CSS-based Illustrations (Fallbacks) */
+        .bar-chart {
+            width: 120px;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            margin: 0 auto 0.75rem;
+        }
+
+        .bar-chart div {
+            background: #a3bffa;
+            width: 18px;
+            border-radius: 4px;
+        }
+
+        .bar-chart div:nth-child(1) { height: 25px; }
+        .bar-chart div:nth-child(2) { height: 35px; }
+        .bar-chart div:nth-child(3) { height: 45px; }
+        .bar-chart div:nth-child(4) { height: 60px; }
+
+        .cylinders {
+            width: 120px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto 0.75rem;
+        }
+
+        .cylinders div {
+            background: #e2e8f0;
+            width: 12px;
+            height: 25px;
+            border-radius: 6px;
+            position: absolute;
+            transform-origin: center;
+        }
+
+        .cylinders div:nth-child(1) { transform: rotate(0deg) translate(50px); }
+        .cylinders div:nth-child(2) { transform: rotate(45deg) translate(50px); }
+        .cylinders div:nth-child(3) { transform: rotate(90deg) translate(50px); }
+        .cylinders div:nth-child(4) { transform: rotate(135deg) translate(50px); }
+        .cylinders div:nth-child(5) { transform: rotate(180deg) translate(50px); }
+        .cylinders div:nth-child(6) { transform: rotate(225deg) translate(50px); }
+        .cylinders div:nth-child(7) { transform: rotate(270deg) translate(50px); }
+        .cylinders div:nth-child(8) { transform: rotate(315deg) translate(50px); }
+
+        .semi-circle {
+            width: 120px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto 0.75rem;
+        }
+
+        .semi-circle::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            border: 6px solid #00C897;
+            border-radius: 100px 100px 0 0;
+            border-bottom: none;
+            top: 25px;
+            left: 10px;
+        }
+
+        .semi-circle::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #00C897;
+            border-radius: 50%;
+            top: 18px;
+            left: 54px;
+        }
+
+        .toggle-switch {
+            width: 120px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto 0.75rem;
+        }
+
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #00C897;
+            border-radius: 50%;
+            top: 20px;
+            left: 60px;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: #e0ffed;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .final-cta form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .final-cta input[type="email"] {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .final-cta button {
+            padding: 0.75rem 2rem;
+            background: #00C897;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .final-cta button:hover {
+            background: #00a77a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Subscription Section -->
+    <section class="subscription">
+        <div class="container">
+            <h1>Subscribe & Get Daily Crypto Trends</h1>
+            <p>Get the market edge you need! Our daily newsletter brings the latest trends and prices straight to your inbox helping you stay informed and ready to act.</p>
+            <form class="subscription-form">
+                <input type="email" placeholder="Email" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+            <h2>How to Stay Up-to-Date in the Crypto World</h2>
+            <p>Subscribe today to get your daily portion of the biggest trends!</p>
+            <div class="subscription-options">
+                <div class="option">
+                    <div class="bar-chart">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <h3>Daily Market Trends</h3>
+                    <p>Get the latest insights and price movements to have your finger on the pulse of the market.</p>
+                </div>
+                <div class="option">
+                    <div class="cylinders">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <h3>EduWednesday</h3>
+                    <p>Fresh, actionable tips every week to boost your earnings.</p>
+                </div>
+                <div class="option">
+                    <div class="semi-circle"></div>
+                    <h3>In-depth Market Analysis</h3>
+                    <p>Biweekly reports on the biggest trends and opportunities in the crypto world.</p>
+                </div>
+                <div class="option">
+                    <div class="toggle-switch"></div>
+                    <h3>Product Updates</h3>
+                    <p>Be the first to discover our latest finds and most captivating reads delivered monthly to inspire you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Make Smarter Moves in Crypto</h2>
+            <p>Be a beginner or a seasoned pro, our updates will keep you in the loop and ready to jump on new opportunities. No fluff—just simple, useful insights to help you win.</p>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

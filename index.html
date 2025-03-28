@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Predictor - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Subscription Banner (Image B) -->
+    <div class="subscription-banner">
+        <p>Get expert-selected crypto trends & updates sent directly to your inbox. <a href="subscribe.html" class="btn btn-primary">Subscribe Now</a></p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/image.png" alt="Bitcoin Predictor Logo" width="40">
+                <span>Bitcoin Predictor</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <select class="language-switcher">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="zh">ZH</option>
+                </select>
+                <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
+                <a href="#login" class="btn" id="login">Login/Signup</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Predict Bitcoin Prices with Confidence</h1>
+            <p>Real-time predictions, historical data, and advanced analytics for traders and investors.</p>
+        </div>
+    </section>
+
+    <!-- Prediction Table -->
+    <section class="prediction-table">
+        <div class="container">
+            <h2>Bitcoin Price Prediction</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>1h Change</th>
+                        <th>24h Change</th>
+                        <th>7d Change</th>
+                        <th>24h Volume</th>
+                        <th>Market Cap</th>
+                        <th>Prediction (24h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="assets/bitcoin-icon.png" alt="Bitcoin" width="50px" height="50px" style="vertical-align: middle;">
+                            Bitcoin (BTC)
+                        </td>                        
+                        <td class="price">$85,903.16</td>
+                        <td class="change negative">-0.3%</td>
+                        <td class="change negative">-2.2%</td>
+                        <td class="change negative">-0.9%</td>
+                        <td>$29,318,401,953</td>
+                        <td>$1,684,817,135,450</td>
+                        <td class="change positive">$86,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Bitcoin Price Graph (Last 3 Months) -->
+    <section class="price-graph">
+        <div class="container">
+            <h2>Bitcoin Price (Last 3 Months)</h2>
+            <canvas id="bitcoinPriceChart" width="400" height="200"></canvas>
+        </div>
+    </section>
+
+<!-- ROI Calculator (Image X) -->
+<section class="roi-calculator">
+    <div class="container">
+        <h2>Calculate Your Bitcoin Investment ROI</h2>
+        <div class="calculator-box">
+            <div class="input-group">
+                <label>Amount Invested</label>
+                <input type="number" id="amount-invested" value="1" min="0" step="0.01">
+            </div>
+            <div class="input-group">
+                <label>Currency</label>
+                <select id="currency">
+                    <option value="BTC">BTC</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Date Buy</label>
+                <input type="date" id="date-buy" value="2013-04-29">
+            </div>
+            <div class="input-group">
+                <label>Date Sold</label>
+                <input type="date" id="date-sold" value="2025-03-28" max="2025-03-28">
+            </div>
+            <button class="btn btn-primary" id="calculate-roi">Calculate ROI%</button>
+        </div>
+        <div class="roi-result" id="roi-result">
+            <!-- ROI result will be displayed here -->
+        </div>
+    </div>
+</section>
+    <!-- Technical Overview (Image Y) -->
+    <section class="technical-overview">
+        <div class="container">
+            <h2>(BTC) Technical Overview</h2>
+            <p>When discussing future trading opportunities of digital assets, it is essential to pay attention to market sentiments.</p>
+            <div class="sentiment-bar">
+                <span class="bullish">Bullish 27%</span>
+                <div class="bar">
+                    <div class="bullish-bar" style="width: 27%;"></div>
+                    <div class="bearish-bar" style="width: 73%;"></div>
+                    <div class="pointer" style="left: 73%;"></div>
+                </div>
+                <span class="bearish">Bearish 73%</span>
+            </div>
+            <p class="highlight">The tides are turning!</p>
+        </div>
+    </section>
+
+
+<!-- Blog Section (Updated with Latest News) -->
+<section class="blog">
+    <div class="container">
+        <h2>Latest Bitcoin News</h2>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="assets/news1.jfif" alt="News 1">
+                <h3>Bitcoin Hovers Around $87K as Investors Await Trump’s Tariff Policies</h3>
+                <p>Bitcoin traded slightly higher at $87,271 as investors awaited clarity on Trump’s tariff policies, with altcoins also seeing gains.</p>
+                <a href="https://in.investing.com/news/cryptocurrency-news/bitcoin-price-today-muted-at-873k-as-trumps-auto-tariffs-weigh-4743407" target="_blank">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/news2.jpg" alt="News 2">
+                <h3>GameStop Plans Bitcoin Investment Amid Store Closures</h3>
+                <p>GameStop is closing more stores and shifting its financial strategy by investing in Bitcoin and stablecoins.</p>
+                <a href="https://economictimes.indiatimes.com/news/international/global-trends/crypto-news-bitcoin-gamestop-rage-quit-1000-storesnow-its-betting-on-bitcoin-will-crypto-be-its-ultimate-cheat-code-or-is-it-game-over/articleshow/119547447.cms?from=mdr" target="_blank">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/news3.jfif" alt="News 3">
+                <h3>Bitcoin price drop to $72K possible due to ‘macro liquidity’ conditions</h3>
+                <p>After a positive start to the week, Bitcoin price reverted to negative returns after BTC (BTC) dropped 3.5% to an intraday low of $84,120 on March 28.</p>
+                <a href="http://tradingview.com/news/cointelegraph:7ea97f133094b:0-bitcoin-price-drop-to-72k-possible-due-to-macro-liquidity-conditions-analyst/" target="_blank">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Articles -->
+<section class="latest-articles">
+    <div class="container">
+        <h2>Latest Articles</h2>
+        <div class="articles">
+            <div class="article">
+                <img src="assets/article1.jpg" alt="Article 1">
+                <h3><a href="https://cointelegraph.com/news/market-underestimates-bitcoin-returning-uptrend-all-time-highs-crypto-analyst" target="_blank">Market Underestimates Bitcoin's Potential for New All-Time Highs</a></h3>
+            </div>
+            <div class="article">
+                <img src="assets/article2.jpg" alt="Article 2">
+                <h3><a href="https://www.twosigma.com/articles/risk-analysis-of-crypto-assets/" target="_blank">Risk Analysis of Crypto Assets</a></h3>
+            </div>
+            <div class="article">
+                <img src="assets/article3.PNG" alt="Article 3">
+                <h3><a href="https://www.brookings.edu/articles/the-brutal-truth-about-bitcoin/" target="_blank">The Brutal Truth About Bitcoin</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bitcoin-section">
+    <h1>Why Is the Bitcoin Price So Volatile?</h1>
+    <p>
+        The price of Bitcoin has been highly volatile since it started because of several factors. Firstly, the crypto market is smaller and not heavily traded like traditional markets, so big trades can make the price swing substantially. Secondly, Bitcoin’s value depends on public sentiment and speculation, leading to short-term price changes. Media coverage, influential opinions, and regulatory developments create uncertainty, affecting demand and supply dynamics and contributing to price fluctuations.
+    </p>
+    <a href="#" class="view-more" onclick="toggleContent()">View More</a>
+    <div id="more-content" class="hidden">
+        <p>
+            Additionally, Bitcoin's decentralized nature means it lacks the stabilizing mechanisms of traditional financial systems, such as central bank interventions. Market manipulation, whale activity (large holders moving significant amounts), and macroeconomic factors like inflation or interest rates also play a role. Over time, as adoption grows and the market matures, some experts believe Bitcoin's volatility may decrease, but for now, it remains a hallmark of the asset.
+        </p>
+    </div>
+</section>
+
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Why is Bitcoin going down?</h3>
+                    <p>Bitcoin’s recent decline can be linked to several factors at the heart of uncertainty in the crypto market. Lower trading volumes have magnified the impact of large trades, leading to heightened volatility. Additionally, economic concerns, such as those in China’s property sector, have reinforced the perception of Bitcoin as a risk-on asset, susceptible to broader economic downturns. Specific events like the shutdown of Binance Connect and notable departures from crypto firms have also shaken investor confidence, further influencing market sentiment and contributing to the price drops.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What will $100 of Bitcoin be worth in 2030?</h3>
+                    <p>If Bitcoin is currently priced at $90,000, $100 would buy approximately 0.00111111 BTC. If Bitcoin’s price increases to $150,000 by 2030, your $100 investment would be worth $166.67. However, these are speculative projections, and actual prices will depend on market conditions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is Bitcoin mining legal?</h3>
+                    <p>Bitcoin mining is legal in many countries, but regulations vary. In some places like the U.S. and Canada, it’s legal but may require permits or compliance with energy regulations. In others, like China, it’s heavily restricted or banned due to energy concerns. Always check local laws before mining.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do Bitcoin ATMs work?</h3>
+                    <p>Bitcoin ATMs allow users to buy or sell Bitcoin using cash or cards. You select the transaction type, scan your wallet QR code, insert cash or enter card details, and the ATM processes the transaction, sending Bitcoin to your wallet or cash to you.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What happens if I lose my Bitcoin wallet?</h3>
+                    <p>If you lose access to your Bitcoin wallet (e.g., private keys or seed phrase), your funds are likely unrecoverable. Always back up your seed phrase and store it securely to avoid permanent loss.</p>
+                </div>
+                <div class="faq-item hidden">
+                    <h3>Can Bitcoin be hacked?</h3>
+                    <p>Bitcoin’s blockchain is highly secure due to its decentralized nature and cryptographic protocols. However, individual wallets, exchanges, or user errors (e.g., phishing) can be hacked. Use strong security practices to protect your funds.</p>
+                </div>
+                <div class="faq-item hidden">
+                    <h3>How does Bitcoin halving affect its price?</h3>
+                    <p>Bitcoin halving reduces the mining reward, slowing the supply of new coins. Historically, this has led to price increases due to reduced supply and increased demand, though other market factors also play a role.</p>
+                </div>
+                <div class="faq-item hidden">
+                    <h3>Is Bitcoin a good investment in 2025?</h3>
+                    <p>Bitcoin’s investment potential depends on market conditions, adoption, and your risk tolerance. While it has shown long-term growth, it’s highly volatile. Do thorough research before investing.</p>
+                </div>
+                <div class="faq-item hidden">
+                    <h3>What are the risks of trading Bitcoin?</h3>
+                    <p>Bitcoin trading risks include price volatility, regulatory changes, security breaches, and market manipulation. Only trade with funds you can afford to lose and use secure platforms.</p>
+                </div>
+                <div class="faq-item hidden">
+                    <h3>How can I buy Bitcoin safely?</h3>
+                    <p>Use reputable exchanges like Coinbase or Binance, enable two-factor authentication, store your Bitcoin in a secure wallet (preferably hardware), and avoid sharing your private keys.</p>
+                </div>
+            </div>
+            <button id="read-more-faq" class="btn btn-primary">Read More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h4>About Bitcoin Predictor</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#news">Bitcoin News</a></li>
+                    <li><a href="#methodology">Prediction Methodology</a></li>
+                    <li><a href="#api">API Access</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Form</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#telegram">Telegram</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Stay updated with Bitcoin predictions!</p>
+                <input type="email" placeholder="Enter your email">
+                <button class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Bitcoin Predictor. All Rights Reserved.</p>
+            <p>Trading is risky. Do your own research.</p>
+        </div>
+    </footer>
+</body>
+</html>

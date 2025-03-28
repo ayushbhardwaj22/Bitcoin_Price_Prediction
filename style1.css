@@ -1,0 +1,1258 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode .technical-overview,
+body.dark-mode .faq,
+body.dark-mode footer {
+    background: #1c2526;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(to bottom, #1c2526, #121212);
+}
+
+body.dark-mode .prediction-table table,
+body.dark-mode .blog-post,
+body.dark-mode .article,
+body.dark-mode .calculator-box,
+body.dark-mode .graph-placeholder,
+body.dark-mode .team-member,
+body.dark-mode .service-item,
+body.dark-mode .contact-form,
+body.dark-mode .contact-info {
+    background: #1c2526;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .price-graph,
+body.dark-mode .blog,
+body.dark-mode .services {
+    background: #1c2526;
+}
+
+body.dark-mode .subscription-banner {
+    background: #2a3b3c;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Subscription Banner */
+.subscription-banner {
+    background: #00C897;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+.subscription-banner p {
+    margin: 0;
+}
+
+.subscription-banner a {
+    margin-left: 0.5rem;
+}
+
+/* Header */
+header {
+    background: #1A2A44;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 40px;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    color: #F7931A;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.language-switcher {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.btn {
+    background: #F7931A;
+    color: #fff;
+    margin: 5px 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+#login {
+    font-size: 12px;
+}
+
+.btn-primary {
+    background: #00C897;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, #1A2A44, #fff);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* About Section */
+.about {
+    padding: 4rem 0; /* Increased padding for a more spacious feel */
+    background: linear-gradient(135deg, #f9f9f9 0%, #e6f0ff 100%); /* Subtle gradient background */
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/wave-pattern.png') repeat; /* Optional: Add a subtle wave pattern */
+    opacity: 0.05; /* Very faint overlay for texture */
+    z-index: 0;
+}
+
+.about h1 {
+    font-size: 3rem; /* Larger heading for impact */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #1A2A44;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out; /* Smooth animation on load */
+}
+
+.about > p {
+    font-size: 1.3rem; /* Slightly larger for readability */
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #555;
+    max-width: 800px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8; /* Improved line spacing */
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.2s ease-out; /* Smooth fade-in */
+}
+
+.mission {
+    margin-bottom: 3rem;
+    background: #fff; /* White background for contrast */
+    padding: 2rem;
+    border-radius: 15px; /* Softer, modern corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.mission:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.mission h2 {
+    font-size: 2rem; /* Larger heading */
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1A2A44;
+    position: relative;
+    display: inline-block;
+}
+
+.mission h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #00C897; /* Accent color underline */
+    border-radius: 2px;
+}
+
+.mission p {
+    font-size: 1.1rem; /* Slightly larger for readability */
+    color: #666;
+    line-height: 1.7; /* Better line spacing */
+}
+
+/* Team Section */
+.team {
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.team h2 {
+    font-size: 2rem; /* Larger heading */
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #1A2A44;
+    text-align: center;
+    position: relative;
+}
+
+.team h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #00C897; /* Accent color underline */
+    border-radius: 2px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center; /* Centered for better alignment */
+    flex-wrap: wrap;
+    gap: 2rem; /* Increased gap for better spacing */
+}
+
+.team-member {
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff, #86a4f5); /* Subtle gradient background */
+    padding: 1.5rem;
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 250px; /* Slightly wider for better proportions */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 200, 151, 0.1), transparent); /* Subtle overlay effect */
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.team-member:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.team-member:hover {
+    transform: translateY(-8px); /* More pronounced lift on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    background: linear-gradient(145deg, #f0f4ff, #e6f0ff); /* Slightly different gradient on hover */
+}
+
+.team-member img {
+    width: 100%;
+    height: 160px; /* Slightly taller for better proportions */
+    object-fit: cover;
+    border-radius: 10px; /* Softer corners */
+    margin-bottom: 1rem;
+    border: 2px solid #00C897; /* Accent border */
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.team-member h3 {
+    font-size: 1.3rem; /* Larger for emphasis */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1A2A44;
+    position: relative;
+    z-index: 1;
+}
+
+.team-member p {
+    font-size: 1rem; /* Larger for readability */
+    color: #666;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .about {
+    background: linear-gradient(135deg, #1c2526 0%, #2a3b3c 100%);
+}
+
+body.dark-mode .about h1,
+body.dark-mode .mission h2,
+body.dark-mode .team h2,
+body.dark-mode .team-member h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .about > p,
+body.dark-mode .mission p,
+body.dark-mode .team-member p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .mission {
+    background: #2a3b3c;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .mission:hover {
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .team-member {
+    background: linear-gradient(145deg, #2a3b3c, #1c2526);
+}
+
+body.dark-mode .team-member:hover {
+    background: linear-gradient(145deg, #3a4b4c, #2a3b3c);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Services Section */
+.services {
+    padding: 3rem 0;
+    background: #f9f9f9;
+}
+
+.services h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1A2A44;
+}
+
+.services p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-item {
+    background: #aed0f7;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1A2A44;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 0; /* Increased padding for a more spacious feel */
+    background: linear-gradient(135deg, #e6f0ff 0%, #fff5e6 100%); /* Vibrant gradient background */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 200, 151, 0.1), transparent); /* Subtle overlay effect */
+    opacity: 0.3; /* Faint overlay for depth */
+    z-index: 0;
+}
+
+.contact h1 {
+    font-size: 3rem; /* Larger heading for impact */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #1A2A44;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out; /* Smooth animation on load */
+}
+
+.contact p {
+    font-size: 1.3rem; /* Slightly larger for readability */
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #555;
+    max-width: 800px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8; /* Improved line spacing */
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.2s ease-out; /* Smooth fade-in */
+}
+
+.contact-content {
+    display: flex;
+    gap: 2.5rem; /* Increased gap for better spacing */
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    flex: 2;
+    background: linear-gradient(145deg, #ffffff, #f0f4ff); /* Subtle gradient background */
+    padding: 2.5rem; /* Increased padding for a more spacious feel */
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at bottom right, rgba(0, 200, 151, 0.1), transparent); /* Subtle overlay effect */
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.contact-form:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.contact-form:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Increased spacing between form elements */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1A2A44;
+    font-size: 1.1rem; /* Slightly larger for emphasis */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Softer corners */
+    font-size: 1rem;
+    background: #f9f9f9; /* Light background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #00C897; /* Accent color on focus */
+    box-shadow: 0 0 8px rgba(0, 200, 151, 0.2); /* Glow effect on focus */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px; /* Minimum height for better usability */
+}
+
+.contact-form .btn-primary {
+    background: linear-gradient(90deg, #00C897, #00a77a); /* Gradient button */
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    background: linear-gradient(90deg, #00a77a, #00C897); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.contact-info {
+    flex: 1;
+    background: linear-gradient(145deg, #fff5e6, #ffffff); /* Warm gradient background */
+    padding: 2.5rem; /* Increased padding */
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(247, 147, 26, 0.1), transparent); /* Subtle overlay effect */
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.contact-info:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.contact-info:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.contact-info h3 {
+    font-size: 1.8rem; /* Larger heading */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1A2A44;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #F7931A; /* Accent color underline */
+    border-radius: 2px;
+}
+
+.contact-info p {
+    font-size: 1.1rem; /* Larger for readability */
+    color: #666;
+    margin-bottom: 1rem; /* Increased spacing */
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7; /* Better line spacing */
+}
+
+.contact-info p strong {
+    color: #1A2A44; /* Darker color for emphasis */
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .contact {
+    background: linear-gradient(135deg, #1c2526 0%, #2a3b3c 100%);
+}
+
+body.dark-mode .contact h1,
+body.dark-mode .contact-info h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact p,
+body.dark-mode .contact-info p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .contact-form {
+    background: linear-gradient(145deg, #2a3b3c, #1c2526);
+}
+
+body.dark-mode .contact-form:hover {
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .form-group label,
+body.dark-mode .contact-info p strong {
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #3a4b4c;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: #00C897;
+    box-shadow: 0 0 8px rgba(0, 200, 151, 0.3);
+}
+
+body.dark-mode .contact-info {
+    background: linear-gradient(145deg, #2a3b3c, #1c2526);
+}
+
+body.dark-mode .contact-info:hover {
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Bitcoin Volatility Section */
+.bitcoin-volatility {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bitcoin-volatility h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1A2A44;
+}
+
+.bitcoin-volatility p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.view-more {
+    display: inline-block;
+    color: #F7931A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Prediction Table */
+.prediction-table {
+    padding: 2rem 0;
+    margin: 25px;
+}
+
+.prediction-table h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    height: 40px;
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: #1A2A44;
+    color: #fff;
+}
+
+.change.positive {
+    color: #00C897;
+}
+
+.change.negative {
+    color: #FF5733;
+}
+
+.price {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Price Graph Section */
+.price-graph {
+    padding: 2rem 0;
+    background: #1a1a1a;
+}
+
+.price-graph h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+#bitcoinPriceChart {
+    background: #1a1a1a;
+}
+
+/* Light mode styles */
+body.light-mode .price-graph {
+    background: #f9f9f9;
+}
+
+body.light-mode .price-graph h2 {
+    color: #333;
+}
+
+body.light-mode #bitcoinPriceChart {
+    background: #fff;
+}
+
+/* ROI Calculator Section */
+.roi-calculator {
+    padding: 2rem 0;
+}
+
+.roi-calculator h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-box {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.roi-calculator .btn-primary {
+    padding: 0.75rem 1.5rem;
+}
+
+.roi-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+body.dark-mode .roi-result {
+    background: #1c2526;
+    color: #e0e0e0;
+}
+
+#calculate-roi {
+    margin-top: 35px;
+    align-items: center;
+    align-content: center;
+}
+
+/* Technical Overview Section */
+.technical-overview {
+    padding: 2rem 0;
+    background: #1A2A44;
+    color: #fff;
+}
+
+.technical-overview h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.technical-overview p {
+    margin-bottom: 1rem;
+}
+
+.sentiment-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bullish {
+    color: #00C897;
+}
+
+.bearish {
+    color: #FF5733;
+}
+
+.bar {
+    flex: 1;
+    height: 20px;
+    position: relative;
+    background: linear-gradient(to right, #00C897 27%, #FF5733 27%);
+    border-radius: 10px;
+}
+
+.pointer {
+    position: absolute;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #fff;
+}
+
+.highlight {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Blog Section */
+.blog {
+    padding: 2rem 0;
+    background: #f9f9f9;
+}
+
+.blog h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1A2A44;
+}
+
+.blog p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.blog-posts {
+    display: flex;
+    gap: 2rem;
+}
+
+.blog-post {
+    flex: 1;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-post img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.blog-post h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-post p {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.blog-post a {
+    color: #F7931A;
+    text-decoration: none;
+}
+
+/* Latest Articles Section */
+.latest-articles {
+    padding: 2rem 0;
+}
+
+.latest-articles h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.articles {
+    display: flex;
+    gap: 2rem;
+}
+
+.article {
+    flex: 1;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.article img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.article h3 a {
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+}
+
+body.dark-mode .article h3 a {
+    color: #e0e0e0;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 2rem 0;
+    background: #1A2A44;
+    color: #fff;
+}
+
+.faq h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.faq-container {
+    margin-bottom: 1rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item.hidden {
+    display: none;
+}
+
+#read-more-faq {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Bitcoin Section */
+.bitcoin-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bitcoin-section h1 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.bitcoin-section p {
+    font-size: 16px;
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.view-more {
+    display: inline-block;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 340px;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer */
+footer {
+    background: #1A2A44;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .blog-posts,
+    .articles,
+    .services-grid,
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .calculator-box {
+        flex-direction: column;
+    }
+
+    .prediction-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .view-more {
+        margin-left: 0;
+        text-align: center;
+        display: block;
+    }
+}

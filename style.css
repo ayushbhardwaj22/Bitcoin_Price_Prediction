@@ -1,0 +1,842 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode .technical-overview,
+body.dark-mode .faq,
+body.dark-mode footer {
+    background: #1c2526;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(to bottom, #1c2526, #121212);
+}
+
+body.dark-mode .prediction-table table,
+body.dark-mode .blog-post,
+body.dark-mode .article,
+body.dark-mode .calculator-box,
+body.dark-mode .graph-placeholder {
+    background: #1c2526;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .price-graph,
+body.dark-mode .blog {
+    background: #1c2526;
+}
+
+body.dark-mode .subscription-banner {
+    background: #2a3b3c;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Subscription Banner */
+.subscription-banner {
+    background: #00C897;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+.subscription-banner p {
+    margin: 0;
+}
+
+.subscription-banner a {
+    margin-left: 0.5rem;
+}
+
+/* Header */
+header {
+    background: #1A2A44;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 40px;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    color: #F7931A;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.language-switcher {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.btn {
+    background: #F7931A;
+    color: #fff;
+    margin: 5px 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+#login{
+    font-size: 12px;
+}
+.btn-primary {
+    background: #00C897;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, #1A2A44, #fff);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.about {
+    padding: 3rem 0;
+    background: #f9f9f9;
+}
+
+.about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1A2A44;
+}
+
+.about > p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.mission {
+    margin-bottom: 2rem;
+}
+
+.mission h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1A2A44;
+}
+
+.mission p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Team Section */
+.team {
+    margin-bottom: 2rem;
+}
+
+.team h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1A2A44;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.team-member {
+    text-align: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.team-member h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1A2A44;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Bitcoin Volatility Section */
+.bitcoin-volatility {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bitcoin-volatility h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1A2A44;
+}
+
+.bitcoin-volatility p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.view-more {
+    display: inline-block;
+    color: #F7931A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Prediction Table */
+.prediction-table {
+    padding: 2rem 0;
+    margin: 25px;
+}
+
+.prediction-table h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    height: 40px;
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: #1A2A44;
+    color: #fff;
+}
+
+.change.positive {
+    color: #00C897;
+}
+
+.change.negative {
+    color: #FF5733;
+}
+
+.price {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Price Graph Section */
+.price-graph {
+    padding: 2rem 0;
+    background: #1a1a1a; /* Default dark mode background */
+}
+
+.price-graph h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff; /* Default dark mode text color */
+}
+
+#bitcoinPriceChart {
+    background: #1a1a1a; /* Default dark mode chart background */
+}
+
+/* Light mode styles */
+body.light-mode .price-graph {
+    background: #f9f9f9; /* Light mode background */
+}
+
+body.light-mode .price-graph h2 {
+    color: #333; /* Light mode text color */
+}
+
+body.light-mode #bitcoinPriceChart {
+    background: #fff; /* Light mode chart background */
+}
+
+/* ROI Calculator Section */
+.roi-calculator {
+    padding: 2rem 0;
+}
+
+.roi-calculator h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-box {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.roi-calculator .btn-primary {
+    padding: 0.75rem 1.5rem;
+}
+
+
+.roi-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+body.dark-mode .roi-result {
+    background: #1c2526;
+    color: #e0e0e0;
+}
+#calculate-roi{
+    margin-top: 35px;
+    align-items: center;
+    align-content: center;
+}
+
+/* Technical Overview Section */
+.technical-overview {
+    padding: 2rem 0;
+    background: #1A2A44;
+    color: #fff;
+}
+
+.technical-overview h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.technical-overview p {
+    margin-bottom: 1rem;
+}
+
+.sentiment-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bullish {
+    color: #00C897;
+}
+
+.bearish {
+    color: #FF5733;
+}
+
+.bar {
+    flex: 1;
+    height: 20px;
+    position: relative;
+    background: linear-gradient(to right, #00C897 27%, #FF5733 27%);
+    border-radius: 10px;
+}
+
+.pointer {
+    position: absolute;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #fff;
+}
+
+.highlight {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Price Prediction Section */
+.price-prediction {
+    padding: 2rem 0;
+}
+
+.price-prediction h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.price-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.price-info .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.change-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Blog Section */
+.blog {
+    padding: 2rem 0;
+    background: #f9f9f9;
+}
+
+.blog h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-posts {
+    display: flex;
+    gap: 2rem;
+}
+
+.blog-post {
+    flex: 1;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.blog-post h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-post p {
+    margin-bottom: 1rem;
+}
+
+.blog-post a {
+    color: #F7931A;
+    text-decoration: none;
+}
+
+/* Latest Articles Section */
+.latest-articles {
+    padding: 2rem 0;
+}
+
+.latest-articles h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.articles {
+    display: flex;
+    gap: 2rem;
+}
+
+.article {
+    flex: 1;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.article img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.article h3 a {
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+}
+
+body.dark-mode .article h3 a {
+    color: #e0e0e0;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 2rem 0;
+    background: #1A2A44;
+    color: #fff;
+}
+
+.faq h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.faq-container {
+    margin-bottom: 1rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item.hidden {
+    display: none;
+}
+
+#read-more-faq {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.bitcoin-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #2a2a2a; /* Slightly lighter dark background for the section */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bitcoin-section h1 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.bitcoin-section p {
+    font-size: 16px;
+    color: #b0b0b0; /* Grayish text */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.view-more {
+    display: inline-block;
+    color: #ffcc00; /* Yellow color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 340px;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Subscription Section */
+.subscription {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.subscription h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subscription p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.subscription-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.subscription-form input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.subscription-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.option {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+body.dark-mode .option {
+    background: #1c2526;
+}
+
+.option h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background: #1A2A44;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .blog-posts,
+    .articles,
+    .subscription-options {
+        flex-direction: column;
+    }
+
+    .calculator-box {
+        flex-direction: column;
+    }
+
+    .prediction-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .subscription-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subscription-form input {
+        width: 100%;
+    }
+}
