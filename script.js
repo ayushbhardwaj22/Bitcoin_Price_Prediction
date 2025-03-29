@@ -11,7 +11,7 @@ setInterval(() => {
     if (priceElement) {
         priceElement.style.opacity = '0';
         setTimeout(() => {
-            priceElement.textContent = `$${Math.floor(Math.random() * 1000 + 85000)}.${Math.floor(Math.random() * 100)}`;
+            priceElement.textContent = `$${Math.floor(Math.random() * 1000 + 84000)}.${Math.floor(Math.random() * 100)}`;
             priceElement.style.opacity = '1';
         }, 500);
     }
