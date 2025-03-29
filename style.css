@@ -366,30 +366,30 @@ canvas#bitcoinPriceChart {
 }
 
 /* Real-Time Price Graph Section */
-.real-time-price-graph {
+/* .real-time-price-graph {
     background: #1c2526; /* Dark background to match the existing chart */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 2rem; /* Add some spacing between the two charts */
-}
+/*     padding: 20px; */
+/*     border-radius: 10px; */
+/*     margin-top: 2rem; /* Add some spacing between the two charts */ */
+/* } */
 
-.real-time-price-graph h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #fff; /* White text for dark mode */
-}
+/* .real-time-price-graph h2 { */
+/*     font-size: 2rem; */
+/*     margin-bottom: 1rem; */
+/*     color: #fff; /* White text for dark mode */ */
+/* } */
 
-.real-time-price-graph .container {
-    background: transparent;
-}
+/* .real-time-price-graph .container { */
+/*     background: transparent; */
+/* } */
 
-body.dark-mode .real-time-price-graph {
-    background: #1c2526;
-}
+/* body.dark-mode .real-time-price-graph { */
+/*     background: #1c2526; */
+/* } */
 
-canvas#realTimePriceChart {
+/* canvas#realTimePriceChart {
     max-height: 300px; /* Match the height of the existing chart */
-}
+/* } */ 
 
 /* ROI Calculator Section */
 .roi-calculator {
