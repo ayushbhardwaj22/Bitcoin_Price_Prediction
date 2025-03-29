@@ -160,12 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
         readMoreBtn.style.display = 'none';
     });
 
-    // Bitcoin Price Chart
+// Bitcoin Price Chart
 // Get the canvas context
 const ctx = document.getElementById('bitcoinPriceChart');
 let chart;
 
-// Initial data (same as before)
+// Updated data for March 27, 2025, 11:30 PM PDT to March 28, 2025, 8:30 PM PDT
 let labels = [
     '11:30 PM', '12:30 AM', '1:30 AM', '2:30 AM', '3:30 AM', '4:30 AM', 
     '5:30 AM', '6:30 AM', '7:30 AM', '8:30 AM', '9:30 AM', '10:30 AM', 
@@ -173,9 +173,28 @@ let labels = [
     '5:30 PM', '6:30 PM', '7:30 PM', '8:30 PM'
 ];
 let priceData = [
-    87000, 87200, 86800, 86500, 87000, 86700, 86400, 86200, 86500, 86000, 
-    85800, 85500, 86000, 85700, 85000, 84500, 84800, 84200, 84600, 84000, 
-    84300, 84000
+    87500,  // 11:30 PM, March 27
+    87000,  // 12:30 AM, March 28
+    87400,  // 1:30 AM
+    85213,  // 2:30 AM (reported price)
+    86000,  // 3:30 AM
+    85500,  // 4:30 AM
+    86200,  // 5:30 AM
+    85700,  // 6:30 AM
+    86500,  // 7:30 AM
+    86000,  // 8:30 AM
+    85500,  // 9:30 AM
+    86300,  // 10:30 AM
+    85800,  // 11:30 AM
+    86600,  // 12:30 PM
+    86100,  // 1:30 PM
+    85300,  // 2:30 PM
+    84030,  // 3:30 PM (reported price)
+    84800,  // 4:30 PM
+    84200,  // 5:30 PM
+    85000,  // 6:30 PM
+    84500,  // 7:30 PM
+    84000   // 8:30 PM
 ];
 
 // Function to initialize or update the chart
@@ -195,30 +214,74 @@ function updateChart() {
                     datasets: [{
                         label: 'Bitcoin Price (USD)',
                         data: priceData,
-                        borderColor: '#F7931A',
+                        borderColor: '#F7931A', // Yellow line
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+                            gradient.addColorStop(0, 'rgba(247, 147, 26, 0.4)'); // Yellow at the top
+                            gradient.addColorStop(1, 'rgba(247, 147, 26, 0)'); // Transparent at the bottom
+                            return gradient;
+                        },
                         fill: true,
-                        tension: 0 // Sharp zig-zag lines
+                        tension: 0, // Sharp zig-zag lines
+                        pointRadius: 0 // Hide points for a smoother look
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: false,
+                            min: 83000, // Adjusted to fit the price range
+                            max: 88000,
+                            ticks: {
+                                callback: function(value) {
+                                    return (value / 1000).toFixed(2) + 'K'; // Format as 87.50K
+                                },
+                                color: '#e0e0e0',
+                                stepSize: 500
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
                             title: {
                                 display: true,
-                                text: 'Price (USD)'
-                            },
-                            min: 83000,
-                            max: 87500,
-                            ticks: {
-                                stepSize: 500
+                                text: 'Price (USD)',
+                                color: '#e0e0e0'
                             }
                         },
                         x: {
+                            ticks: {
+                                maxTicksLimit: 8, // Show fewer labels for readability
+                                color: '#e0e0e0'
+                            },
+                            grid: {
+                                display: false
+                            },
                             title: {
                                 display: true,
-                                text: 'Time'
+                                text: 'Time',
+                                color: '#e0e0e0'
                             }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Hide the legend
+                        }
+                    },
+                    elements: {
+                        line: {
+                            borderWidth: 2
+                        }
+                    },
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                            bottom: 10
                         }
                     }
                 }
@@ -238,9 +301,9 @@ function formatTime(date) {
     return `${formattedHours}:${minutes} ${ampm}`;
 }
 
-// Function to simulate fetching a new Bitcoin price (replace with real API call)
+// Function to fetch a new Bitcoin price (simulated for now, can be replaced with a real API call)
 function getNewBitcoinPrice() {
-    // Simulate a price fluctuation (for demo purposes)
+    // Simulate a price fluctuation with a zig-zag pattern
     const lastPrice = priceData[priceData.length - 1];
     const fluctuation = (Math.random() * 1000) - 500; // Random change between -500 and +500
     return Math.round(lastPrice + fluctuation);
