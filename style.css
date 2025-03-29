@@ -341,7 +341,6 @@ table th {
     to { opacity: 1; }
 }
 /* Price Graph Section */
-/* Price Graph Section */
 
 .price-graph h2 {
     font-size: 2rem;
@@ -365,18 +364,7 @@ body.dark-mode .price-graph {
 canvas#bitcoinPriceChart {
     max-height: 300px; /* Adjust height as needed */
 }
-/* Light mode styles */
-body.light-mode .price-graph {
-    background: #f9f9f9; /* Light mode background */
-}
 
-body.light-mode .price-graph h2 {
-    color: #333; /* Light mode text color */
-}
-
-body.light-mode #bitcoinPriceChart {
-    background: #fff; /* Light mode chart background */
-}
 /* Real-Time Price Graph Section */
 .real-time-price-graph {
     background: #1c2526; /* Dark background to match the existing chart */
@@ -402,6 +390,7 @@ body.dark-mode .real-time-price-graph {
 canvas#realTimePriceChart {
     max-height: 300px; /* Match the height of the existing chart */
 }
+
 /* ROI Calculator Section */
 .roi-calculator {
     padding: 2rem 0;
