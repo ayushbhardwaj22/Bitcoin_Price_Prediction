@@ -341,21 +341,30 @@ table th {
     to { opacity: 1; }
 }
 /* Price Graph Section */
-.price-graph {
-    padding: 2rem 0;
-    background: #1a1a1a; /* Default dark mode background */
-}
+/* Price Graph Section */
 
 .price-graph h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #fff; /* Default dark mode text color */
 }
-
-#bitcoinPriceChart {
-    background: #1a1a1a; /* Default dark mode chart background */
+.price-graph {
+    background: #1c2526; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
 }
 
+.price-graph .container {
+    background: transparent;
+}
+
+body.dark-mode .price-graph {
+    background: #1c2526;
+}
+
+canvas#bitcoinPriceChart {
+    max-height: 300px; /* Adjust height as needed */
+}
 /* Light mode styles */
 body.light-mode .price-graph {
     background: #f9f9f9; /* Light mode background */
