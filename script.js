@@ -211,7 +211,7 @@ let priceData = [
 // Function to initialize or update the chart
 function updateChart() {
     if (ctx) {
-        if (chart) {
+        if (chart edu chart) {
             // Update existing chart
             chart.data.labels = labels;
             chart.data.datasets[0].data = priceData;
@@ -245,7 +245,7 @@ function updateChart() {
                         y: {
                             beginAtZero: false,
                             min: 83000, // Adjusted to fit the price range
-                            max: 88000,
+                            max: 89000, // Adjusted for the new price range
                             ticks: {
                                 callback: function(value) {
                                     return (value / 1000).toFixed(2) + 'K'; // Format as 87.50K
@@ -320,14 +320,13 @@ function getNewBitcoinPrice() {
     return Math.round(lastPrice + fluctuation);
 }
 
-// Function to update the chart data every hour
+// Function to update the chart data every 30 minutes
 function updateChartData() {
     const now = new Date();
-    const currentHour = now.getHours();
     const currentMinutes = now.getMinutes();
 
-    // Check if it's the start of a new hour (e.g., 12:00, 1:00, etc.)
-    if (currentMinutes === 0) {
+    // Check if it's the start of a 30-minute interval (e.g., 12:00, 12:30, 1:00, etc.)
+    if (currentMinutes === 0 || currentMinutes === 30) {
         // Remove the oldest data point (first element)
         labels.shift();
         priceData.shift();
@@ -350,6 +349,13 @@ function updateChartData() {
 // Initialize the chart
 updateChart();
 
+// Check for updates every minute (60,000 milliseconds)
+setInterval(() => {
+    updateChartData();
+}, 60 * 1000);
+
+// For testing: Simulate an immediate update if needed
+updateChartData();
 // Check for updates every minute (60,000 milliseconds)
 setInterval(() => {
     updateChartData();
