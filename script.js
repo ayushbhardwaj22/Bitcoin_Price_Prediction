@@ -5,18 +5,6 @@ document.getElementById('contact-form')?.addEventListener('submit', function(e) 
     this.reset();
 });
 
-// Price Animation (Mock Update)
-setInterval(() => {
-    const priceElement = document.querySelector('.price');
-    if (priceElement) {
-        priceElement.style.opacity = '0';
-        setTimeout(() => {
-            priceElement.textContent = `$${Math.floor(Math.random() * 1000 + 84000)}.${Math.floor(Math.random() * 100)}`;
-            priceElement.style.opacity = '1';
-        }, 500);
-    }
-}, 5000);
-
 // Mock historical Bitcoin price data (in USD) as a fallback
 const mockBitcoinPrices = {
     '2013-04-29': 144,
@@ -160,82 +148,235 @@ document.addEventListener('DOMContentLoaded', () => {
         readMoreBtn.style.display = 'none';
     });
 
-// Bitcoin Price Chart
-// Get the canvas context
-const ctx = document.getElementById('bitcoinPriceChart');
-let chart;
+    // Bitcoin Price Chart (Last 3 Months)
+    const ctx = document.getElementById('bitcoinPriceChart');
+    let chart;
 
-// Updated data for March 28, 2025, 9:00 PM PDT to March 29, 2025, 12:00 PM PDT
-let labels = [
-    '9:00 PM', '9:30 PM', '10:00 PM', '10:30 PM', '11:00 PM', '11:30 PM', // March 28
-    '12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM', 
-    '3:00 AM', '3:30 AM', '4:00 AM', '4:30 AM', '5:00 AM', '5:30 AM', 
-    '6:00 AM', '6:30 AM', '7:00 AM', '7:30 AM', '8:00 AM', '8:30 AM', 
-    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', 
-    '12:00 PM' // March 29
-];
-let priceData = [
-    84000,  // 9:00 PM, March 28
-    84500,  // 9:30 PM
-    84000,  // 10:00 PM
-    84800,  // 10:30 PM
-    84300,  // 11:00 PM
-    85000,  // 11:30 PM
-    84500,  // 12:00 AM, March 29
-    85200,  // 12:30 AM
-    84700,  // 1:00 AM
-    85500,  // 1:30 AM
-    85000,  // 2:00 AM
-    85700,  // 2:30 AM
-    85200,  // 3:00 AM
-    86000,  // 3:30 AM
-    85500,  // 4:00 AM
-    86200,  // 4:30 AM
-    85700,  // 5:00 AM
-    86500,  // 5:30 AM
-    86000,  // 6:00 AM
-    86700,  // 6:30 AM
-    86200,  // 7:00 AM
-    87000,  // 7:30 AM
-    86500,  // 8:00 AM
-    87200,  // 8:30 AM
-    86700,  // 9:00 AM
-    87500,  // 9:30 AM
-    87000,  // 10:00 AM
-    87700,  // 10:30 AM
-    87200,  // 11:00 AM
-    88000,  // 11:30 AM
-    84500   // 12:00 PM
-];
+    // Updated data for March 28, 2025, 9:00 PM PDT to March 29, 2025, 12:00 PM PDT
+    let labels = [
+        '9:00 PM', '9:30 PM', '10:00 PM', '10:30 PM', '11:00 PM', '11:30 PM', // March 28
+        '12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM', 
+        '3:00 AM', '3:30 AM', '4:00 AM', '4:30 AM', '5:00 AM', '5:30 AM', 
+        '6:00 AM', '6:30 AM', '7:00 AM', '7:30 AM', '8:00 AM', '8:30 AM', 
+        '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', 
+        '12:00 PM' // March 29
+    ];
+    let priceData = [
+        84000,  // 9:00 PM, March 28
+        84500,  // 9:30 PM
+        84000,  // 10:00 PM
+        84800,  // 10:30 PM
+        84300,  // 11:00 PM
+        85000,  // 11:30 PM
+        84500,  // 12:00 AM, March 29
+        85200,  // 12:30 AM
+        84700,  // 1:00 AM
+        85500,  // 1:30 AM
+        85000,  // 2:00 AM
+        85700,  // 2:30 AM
+        85200,  // 3:00 AM
+        86000,  // 3:30 AM
+        85500,  // 4:00 AM
+        86200,  // 4:30 AM
+        85700,  // 5:00 AM
+        86500,  // 5:30 AM
+        86000,  // 6:00 AM
+        86700,  // 6:30 AM
+        86200,  // 7:00 AM
+        87000,  // 7:30 AM
+        86500,  // 8:00 AM
+        87200,  // 8:30 AM
+        86700,  // 9:00 AM
+        87500,  // 9:30 AM
+        87000,  // 10:00 AM
+        87700,  // 10:30 AM
+        87200,  // 11:00 AM
+        88000,  // 11:30 AM
+        84500   // 12:00 PM
+    ];
 
-// Function to initialize or update the chart
-function updateChart() {
-    if (ctx) {
-        if (chart edu chart) {
-            // Update existing chart
-            chart.data.labels = labels;
-            chart.data.datasets[0].data = priceData;
-            chart.update();
+    // Function to initialize or update the historical chart
+    function updateChart() {
+        if (ctx) {
+            if (chart) {
+                chart.data.labels = labels;
+                chart.data.datasets[0].data = priceData;
+                chart.update();
+            } else {
+                chart = new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Bitcoin Price (USD)',
+                            data: priceData,
+                            borderColor: '#F7931A',
+                            backgroundColor: (context) => {
+                                const ctx = context.chart.ctx;
+                                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+                                gradient.addColorStop(0, 'rgba(247, 147, 26, 0.4)');
+                                gradient.addColorStop(1, 'rgba(247, 147, 26, 0)');
+                                return gradient;
+                            },
+                            fill: true,
+                            tension: 0,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                min: 83000,
+                                max: 89000,
+                                ticks: {
+                                    callback: function(value) {
+                                        return (value / 1000).toFixed(2) + 'K';
+                                    },
+                                    color: '#e0e0e0',
+                                    stepSize: 500
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Price (USD)',
+                                    color: '#e0e0e0'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    callback: function(value, index, values) {
+                                        if (index % 4 === 0) {
+                                            return labels[index];
+                                        }
+                                        return '';
+                                    },
+                                    color: '#e0e0e0'
+                                },
+                                grid: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Time',
+                                    color: '#e0e0e0'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        elements: {
+                            line: {
+                                borderWidth: 2
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 10,
+                                right: 10,
+                                top: 10,
+                                bottom: 10
+                            }
+                        }
+                    }
+                });
+            }
         } else {
-            // Create new chart
-            chart = new Chart(ctx.getContext('2d'), {
+            console.warn('Bitcoin price chart element not found');
+        }
+    }
+
+    // Function to format time as "H:MM:SS AM/PM"
+    function formatTime(date) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const seconds = date.getSeconds().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;
+        return `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+    }
+
+    // Function to fetch a new Bitcoin price (simulated for now, can be replaced with a real API call)
+    function getNewBitcoinPrice() {
+        const lastPrice = priceData[priceData.length - 1];
+        const fluctuation = (Math.random() * 1000) - 500;
+        return Math.round(lastPrice + fluctuation);
+    }
+
+    // Function to update the historical chart data every 30 minutes
+    function updateChartData() {
+        const now = new Date();
+        const currentMinutes = now.getMinutes();
+
+        if (currentMinutes === 0 || currentMinutes === 30) {
+            labels.shift();
+            priceData.shift();
+
+            const newTimeLabel = formatTime(now);
+            labels.push(newTimeLabel);
+
+            const newPrice = getNewBitcoinPrice();
+            priceData.push(newPrice);
+
+            updateChart();
+
+            console.log(`Updated historical chart at ${newTimeLabel} with new price: ${newPrice}`);
+        }
+    }
+
+    // Initialize the historical chart
+    updateChart();
+
+    // Check for updates every minute (60,000 milliseconds)
+    setInterval(() => {
+        updateChartData();
+    }, 60 * 1000);
+
+    // Real-Time Bitcoin Price Chart (Last 50 Seconds)
+    const realTimeCtx = document.getElementById('realTimePriceChart');
+    let realTimeChart;
+    let realTimeLabels = [];
+    let realTimePriceData = [];
+
+    // Initialize the real-time chart with 10 empty data points
+    for (let i = 0; i < 10; i++) {
+        realTimeLabels.push('');
+        realTimePriceData.push(84000); // Start with a default price
+    }
+
+    // Function to initialize or update the real-time chart
+function updateRealTimeChart() {
+    if (realTimeCtx) {
+        if (realTimeChart) {
+            realTimeChart.data.labels = realTimeLabels;
+            realTimeChart.data.datasets[0].data = realTimePriceData;
+            realTimeChart.update();
+        } else {
+            realTimeChart = new Chart(realTimeCtx.getContext('2d'), {
                 type: 'line',
                 data: {
-                    labels: labels,
+                    labels: realTimeLabels,
                     datasets: [{
-                        label: 'Bitcoin Price (USD)',
-                        data: priceData,
-                        borderColor: '#F7931A', // Yellow line
+                        label: 'Real-Time Bitcoin Price (USD)',
+                        data: realTimePriceData,
+                        borderColor: '#F7931A',
                         backgroundColor: (context) => {
                             const ctx = context.chart.ctx;
                             const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                            gradient.addColorStop(0, 'rgba(247, 147, 26, 0.4)'); // Yellow at the top
-                            gradient.addColorStop(1, 'rgba(247, 147, 26, 0)'); // Transparent at the bottom
+                            gradient.addColorStop(0, 'rgba(247, 147, 26, 0.4)');
+                            gradient.addColorStop(1, 'rgba(247, 147, 26, 0)');
                             return gradient;
                         },
                         fill: true,
-                        tension: 0, // Sharp zig-zag lines
-                        pointRadius: 0 // Hide points for a smoother look
+                        tension: 0,
+                        pointRadius: 0
                     }]
                 },
                 options: {
@@ -244,14 +385,11 @@ function updateChart() {
                     scales: {
                         y: {
                             beginAtZero: false,
-                            min: 83000, // Adjusted to fit the price range
-                            max: 89000, // Adjusted for the new price range
+                            min: 84000, // Start at 84000
+                            max: 85000, // End at 85000
                             ticks: {
-                                callback: function(value) {
-                                    return (value / 1000).toFixed(2) + 'K'; // Format as 87.50K
-                                },
-                                color: '#e0e0e0',
-                                stepSize: 500
+                                stepSize: 50, // Increment by 50 (84000, 84050, 84100, ..., 85000)
+                                color: '#e0e0e0'
                             },
                             grid: {
                                 color: 'rgba(255, 255, 255, 0.1)'
@@ -264,7 +402,12 @@ function updateChart() {
                         },
                         x: {
                             ticks: {
-                                maxTicksLimit: 8, // Show fewer labels for readability
+                                callback: function(value, index, values) {
+                                    if (index % 2 === 0) {
+                                        return realTimeLabels[index];
+                                    }
+                                    return '';
+                                },
                                 color: '#e0e0e0'
                             },
                             grid: {
@@ -279,7 +422,7 @@ function updateChart() {
                     },
                     plugins: {
                         legend: {
-                            display: false // Hide the legend
+                            display: false
                         }
                     },
                     elements: {
@@ -299,70 +442,35 @@ function updateChart() {
             });
         }
     } else {
-        console.warn('Bitcoin price chart element not found');
+        console.warn('Real-time price chart element not found');
     }
 }
 
-// Function to format time as "H:MM AM/PM"
-function formatTime(date) {
-    const hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12 AM/PM
-    return `${formattedHours}:${minutes} ${ampm}`;
-}
+    // Price Animation and Real-Time Chart Update
+    setInterval(() => {
+        const priceElement = document.querySelector('.price');
+        if (priceElement) {
+            priceElement.style.opacity = '0';
+            setTimeout(() => {
+                const newPrice = Math.floor(Math.random() * 1000 + 84000) + (Math.floor(Math.random() * 100) / 100);
+                priceElement.textContent = `$${newPrice.toFixed(2)}`;
+                priceElement.style.opacity = '1';
 
-// Function to fetch a new Bitcoin price (simulated for now, can be replaced with a real API call)
-function getNewBitcoinPrice() {
-    // Simulate a price fluctuation with a zig-zag pattern
-    const lastPrice = priceData[priceData.length - 1];
-    const fluctuation = (Math.random() * 1000) - 500; // Random change between -500 and +500
-    return Math.round(lastPrice + fluctuation);
-}
+                // Update the real-time chart
+                realTimeLabels.shift();
+                realTimePriceData.shift();
 
-// Function to update the chart data every 30 minutes
-function updateChartData() {
-    const now = new Date();
-    const currentMinutes = now.getMinutes();
+                const now = new Date();
+                realTimeLabels.push(formatTime(now));
+                realTimePriceData.push(newPrice);
 
-    // Check if it's the start of a 30-minute interval (e.g., 12:00, 12:30, 1:00, etc.)
-    if (currentMinutes === 0 || currentMinutes === 30) {
-        // Remove the oldest data point (first element)
-        labels.shift();
-        priceData.shift();
+                updateRealTimeChart();
+            }, 500);
+        }
+    }, 5000);
 
-        // Add the new time label (current time)
-        const newTimeLabel = formatTime(now);
-        labels.push(newTimeLabel);
-
-        // Add a new price (simulated for now, replace with API call)
-        const newPrice = getNewBitcoinPrice();
-        priceData.push(newPrice);
-
-        // Update the chart
-        updateChart();
-
-        console.log(`Updated chart at ${newTimeLabel} with new price: ${newPrice}`);
-    }
-}
-
-// Initialize the chart
-updateChart();
-
-// Check for updates every minute (60,000 milliseconds)
-setInterval(() => {
-    updateChartData();
-}, 60 * 1000);
-
-// For testing: Simulate an immediate update if needed
-updateChartData();
-// Check for updates every minute (60,000 milliseconds)
-setInterval(() => {
-    updateChartData();
-}, 60 * 1000);
-
-// For testing: Simulate an immediate update if needed
-updateChartData();
+    // Initialize the real-time chart
+    updateRealTimeChart();
 
     // Fetch Bitcoin news
     fetchBitcoinNews();
@@ -393,7 +501,6 @@ updateChartData();
 
         console.log('Input values:', { amountInvested, dateBuy, dateSold });
 
-        // Validate inputs
         if (!amountInvested || amountInvested <= 0) {
             roiResult.textContent = 'Please enter a valid amount invested.';
             console.warn('Invalid amount invested:', amountInvested);
@@ -412,11 +519,9 @@ updateChartData();
             return;
         }
 
-        // Show loading state
         roiResult.textContent = 'Calculating...';
         console.log('Fetching prices...');
 
-        // Fetch Bitcoin prices for the selected dates using CoinGecko API
         const buyPrice = await getBitcoinPrice(dateBuy);
         const sellPrice = await getBitcoinPrice(dateSold);
 
@@ -428,7 +533,6 @@ updateChartData();
             return;
         }
 
-        // Calculate ROI
         const result = calculateROI(amountInvested, buyPrice, sellPrice);
         if (result) {
             roiResult.innerHTML = `
@@ -444,6 +548,7 @@ updateChartData();
     });
 });
 
+// Function to toggle content (View More/View Less)
 function toggleContent() {
     const moreContent = document.getElementById('more-content');
     const viewMoreLink = document.querySelector('.view-more');
