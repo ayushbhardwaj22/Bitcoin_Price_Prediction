@@ -452,7 +452,7 @@ function updateRealTimeChart() {
         if (priceElement) {
             priceElement.style.opacity = '0';
             setTimeout(() => {
-                const newPrice = Math.floor(Math.random() * 1000 + 84000) + (Math.floor(Math.random() * 100) / 100);
+                const newPrice = Math.floor(Math.random() * 1000 + 83154.52) + (Math.floor(Math.random() * 100) / 100);
                 priceElement.textContent = `$${newPrice.toFixed(2)}`;
                 priceElement.style.opacity = '1';
 
